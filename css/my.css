@@ -10,6 +10,14 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
+	text-transform:none;
 	font-family: "Yasashisa", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
 }
 
+.reveal h3 {
+	padding-bottom: 30px;
+}
+
+.reveal UL LI {
+	padding-bottom: 10px;
+}
