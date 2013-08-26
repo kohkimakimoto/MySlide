@@ -179,7 +179,7 @@ mysql> alter table xxx ...
 * Composer
   * RubyのBunlderと同等。
 * Assetic
-  * Railsのアセットパイプライン。
+  * Railsのアセットパイプラインと同等。
   * lessやCoffeeScriptをサーバでコンパイルして使えるようになる。
 
 ---
