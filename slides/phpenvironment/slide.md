@@ -180,7 +180,7 @@ mysql> alter table xxx ...
   * RubyのBunlderと同等。
 * Assetic
   * Railsのアセットパイプライン。
-  * lessやCoffeeScriptを使えるようになる。
+  * lessやCoffeeScriptをサーバでコンパイルして使えるようになる。
 
 ---
 
