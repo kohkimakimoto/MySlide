@@ -1,4 +1,4 @@
-### 最近のPHPWebアプリ開発環境
+<h3>PHPWebアプリケーション<br/>開発環境</h3>
 
 についての(個人的な)まとめ
 
@@ -6,28 +6,31 @@
 
 ---
 
-### 実務でやってること
+### 開発環境、ツール、サービス
 
 ---
 
 ### VirtualBox
 
-* ローカル開発環境。
+* 仮想環境。
+* ローカルマシンにLinuxサーバを立てて開発環境に。
 * XAMPつかっていいのは小学生まで。
 
 ---
 
 ### Chef
 
-* サーバ設定を自動化。あるべき状態に構築してくれる。
+* サーバ構築を自動化。
+
+* サーバをあるべき状態に設定してくれる。
 
 * 自動化も利点だけど、ローカル開発環境と本番の設定を一元管理できるのが大きい。
 
 * サーバ環境をポータブルにできる。
 
-* 実は、敷居はすごく低い。
+* 実は導入の敷居はすごく低い。
   * インストールはコマンド一発
-  * RPM
+  * 組み込みRubyまで入っているRPMがある。
 
 ---
 
@@ -42,10 +45,10 @@ $ mv composer.phar /usr/local/bin/composer
 ```
 * アプリケーションレイヤでモジュール管理。
 * システムワイドを汚さないので安心。
-* この手のモジュール管理は最近のLLではスタンダード。
-  * PerlではCarton
-  * RubyではBundler
-  * Pythonはしらない。。。
+* 昨今のLLではスタンダードな構成管理の仕組み。
+* 他言語で同様のもの。
+  * Carton　(Perl)
+  * Bundler (Ruby)
 
 ---
 
@@ -53,17 +56,17 @@ $ mv composer.phar /usr/local/bin/composer
 
 * Composerのメインリポジトリ。
 * https://packagist.org/
-* 流行りのPHPモジュールはここで探そう。
+* 必要なPHPモジュールはここで探す。
 * 玉石混淆でなんでもある。
-* Githubと連携させて自分で作ったモジュールを登録しておくとさらに便利。
+* Githubと連携させて自分で作ったモジュールを登録しておくと、いろんな場面で再利用が捗る。
 
 ---
 
 ### PHPUnit
 
 * テストフレームワーク。
-* PHPテストのデファクト。
-* テストしたらカバレッジレポート出すべし。どれだけシステムが「保護」されているか確認できる。
+* PHPテストのデファクトスタンダード。
+* テストしたらカバレッジレポートを出す。どれだけシステムが「保護」されているか確認できる。
 * テストのないコードはレガシーコードですよ。
 
 ---
@@ -83,7 +86,7 @@ $ mv composer.phar /usr/local/bin/composer
 * ブラウザ自動操作をサーバで行う。
 * GUIがないサーバで動作させるためXvfb(仮想フレームバッファ)を併用する。
 * PHPUnitと連係させてコマンド一発でテスト開始。
-* カバレッジレポートをとる。
+* もちろんカバレッジレポートをとる。
 
 ---
 
@@ -94,7 +97,7 @@ $ mv composer.phar /usr/local/bin/composer
   * http://kohkimakimoto.github.io/lib-migration/
 * スキーマ変更を手動、生SQLでやっていいのは小学生まで。
 ```
-# => こういう操作やんない
+# => こういう操作を本番でやらない
 mysql> alter table xxx ...
 ```
 
@@ -111,7 +114,7 @@ mysql> alter table xxx ...
 
 ---
 
-### 最近いじってみたものとか
+### 最近いじってみたもの
 
 実務とはあんまし関係なしに。
 
@@ -122,8 +125,7 @@ mysql> alter table xxx ...
 * CI(継続的インテグレーション)サービス。
 * https://travis-ci.org/
 * GithubリポジトリにPushするとそれをフックしてテストを自動実行してくれる。
-* CIはここで初体験。
-* 便利やわ～。
+* CIは使ってみるとやはり便利。
 * テスト書くモチベーションUP。
 
 ---
@@ -132,55 +134,86 @@ mysql> alter table xxx ...
 
 * Travisでテストした結果のカバレッジを表示してくれるサービス。
 * https://coveralls.io/
-* 便利やわ～。
 * テスト書くモチベーションUP。
 
 ---
 
-### 新しめのフレームワーク
+### 新しめのPHPフレームワーク
 
 * Silex
-  * RubyのSinatraみたいなマイクロフレームワーク。
-* Symfony2
-  * Packagistもこれでできてる。
-* 1世代前のフレームワーク(Symfony, CakePHP, ZendFramework, Codeigniter)と比較して、構造化、標準化が進んだ感じがする。
+* http://silex.sensiolabs.org/
+* RubyのSinatraみたいなマイクロフレームワーク。
+* やりたいことが増えてくるとSymfonyとかのほうがいい気がする。
 
 ---
 
-### 新しめのフレームワーク
+### 新しめのPHPフレームワーク
 
+* Symfony2
+* Packagistもこれでできてる。
+* バンドルで構造化された作りが、初見は複雑に感じるので、とっつきにくい気がする。
+* DoctrineのアーキテクチャがActiveRecordからDataMapperに変更。
+* 個人的にはActiveRecordのほうが好みなので、テンション下がった。
+
+---
+
+### 新しめのPHPフレームワーク
+
+* ZnedFramework2
+* 試してない。
+
+---
+
+### 新しめのPHPフレームワーク
+
+* 1世代前のフレームワーク(Symfony, CakePHP, ZendFramework, Codeigniter)と比較して、構造化、標準化が進んだ感じがする。
 * 名前空間を使ったモジュールの構造化。
 * Composerによる標準的なパッケージ管理。
 * 昔はこの辺りを各フレームワークが、独自の命名規約、ライブラリなどで管理していた。
-* 他言語由来の新しめの機能も追従して組み込まれてきている。
-* Assetic
-  * Railsのアセットパイプライン的なもの。
-  * lessやCoffeeScriptを使えるようになる。
 
+---
+
+### 新しめのPHPフレームワーク
+
+* 他言語由来のモダンな機能を追従している。
+* Composer
+  * RubyのBunlderと同等。
+* Assetic
+  * Railsのアセットパイプライン。
+  * lessやCoffeeScriptを使えるようになる。
 
 ---
 
 ### Ansible
 
-* すこーし触ってみただけ。
+* Pythonで書かれたサーバプロビジョニングツール。
 * http://www.ansibleworks.com/
-* 軽量chef的なもの。
+* 軽量なchef的なもの。
 * chefのcookbookにあたるplaybookはymlで記述する。
-* だからpython製だけどpythonほとんど意識しない。
-* CentOSならepelからyumでインストールできる。
+* CentOSならepelからyumで一発インストールできる。
 * デプロイツールとして使おうか検討中。
 
 ---
 
 ### Webデザインまわり
+
 * Bootstrap3
-  * http://getbootstrap.com/
-  * モバイルに強くなった。レスポンシブデザイン。
+* http://getbootstrap.com/
+* モバイルへの表現に強くなった。
+* レスポンシブデザイン。
+* グリッドレイアウトの仕組みが2系と変わったので覚えなおさないといけない。
+
+---
+
+### Webデザインまわり
+
 * Font Awesome
-  * http://fortawesome.github.io/Font-Awesome/
-  * アイコンをフォントで表現。
-  * 画像いじらなくても、CSSでアイコンのサイズ、色が変えられる。
+* http://fortawesome.github.io/Font-Awesome/
+* アイコンをフォントで表現。
+* 画像いじらなくても、CSSでアイコンのサイズ、色が変えられる。
+* 最近のフラットデザインと親和性よし。
 
 ---
 
 ### おしまい。
+

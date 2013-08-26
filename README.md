@@ -8,13 +8,13 @@ Installing jekyll using bundler
 $ bundle install
 ```
 
-Running local server.
+Running local jekyll server.
 
 ```
 $ bundle exec jekyll serve --watch
 ```
 
-# Related softwares
+## Related softwares
 
 * jekyll
 * reveal.js
