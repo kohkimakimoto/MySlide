@@ -111,6 +111,7 @@ mysql> alter table xxx ...
 * RubyのCapistrano的なやつ。
 * リモートサーバへの定型作業をタスクにして管理。
 * アプリのデプロイやマイグレーションをコマンド一発でできるようにする。
+* でも最近、[Ansible](http://www.ansibleworks.com/)のほうがいいんじゃないかと思い始めた。
 
 ---
 
