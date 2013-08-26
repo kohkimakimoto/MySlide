@@ -1,4 +1,4 @@
-<h3>PHPWebアプリケーション<br/>開発環境</h3>
+<h3>最近のPHPWebアプリケーション<br/>開発環境</h3>
 
 についての(個人的な)まとめ
 
@@ -14,7 +14,7 @@
 
 * 仮想環境。
 * ローカルマシンにLinuxサーバを立てて開発環境に。
-* XAMPつかっていいのは小学生まで。
+* XAMPつかっていいのは小学生まで（嘘。
 
 ---
 
@@ -37,24 +37,22 @@
 ### Composer
 
 * モダンなPHPモジュール管理。
-* インストール簡単。
+* インストールが簡単。
 ```
-# これだけ。
 $ curl -sS https://getcomposer.org/installer | php
 $ mv composer.phar /usr/local/bin/composer
 ```
-* アプリケーションレイヤでモジュール管理。
+* 設定ファイルに必要なモジュールを指定しておけば、一括でローカルにインストールしてくれる。
 * システムワイドを汚さないので安心。
 * 昨今のLLではスタンダードな構成管理の仕組み。
-* 他言語で同様のもの。
-  * Carton　(Perl)
+  * Carton (Perl)
   * Bundler (Ruby)
 
 ---
 
 ### Packagist
 
-* Composerのメインリポジトリ。
+* Composer対応モジュールが登録してあるリポジトリ。
 * https://packagist.org/
 * 必要なPHPモジュールはここで探す。
 * 玉石混淆でなんでもある。
@@ -67,7 +65,7 @@ $ mv composer.phar /usr/local/bin/composer
 * テストフレームワーク。
 * PHPテストのデファクトスタンダード。
 * テストしたらカバレッジレポートを出す。どれだけシステムが「保護」されているか確認できる。
-* テストのないコードはレガシーコードですよ。
+* テストのないコードはレガシーコードですよ？
 
 ---
 
@@ -92,9 +90,9 @@ $ mv composer.phar /usr/local/bin/composer
 
 ### DBマイグレーション
 
-* MySQLのスキーマ定義、状態を管理する。
-* ツールを自作。
+* LibMigration(自作)
   * http://kohkimakimoto.github.io/lib-migration/
+* MySQLのスキーマ定義、状態を管理する。
 * スキーマ変更を手動、生SQLでやっていいのは小学生まで。
 ```
 # => こういう操作を本番でやらない
@@ -105,7 +103,7 @@ mysql> alter table xxx ...
 
 ### デプロイツール
 
-* ツールを自作。
+* Altax(自作)
   * http://kohkimakimoto.github.io/altax/
 * 並列SSHを実行。
 * RubyのCapistrano的なやつ。
@@ -144,13 +142,14 @@ mysql> alter table xxx ...
 * Silex
 * http://silex.sensiolabs.org/
 * RubyのSinatraみたいなマイクロフレームワーク。
-* やりたいことが増えてくるとSymfonyとかのほうがいい気がする。
+* やりたいことが増えてくると結局いろいろ自分でコード書くことになるので、Symfonyとかのほうがいい気がする。
 
 ---
 
 ### 新しめのPHPフレームワーク
 
 * Symfony2
+* http://symfony.com/
 * Packagistもこれでできてる。
 * バンドルで構造化された作りが、初見は複雑に感じるので、とっつきにくい気がする。
 * DoctrineのアーキテクチャがActiveRecordからDataMapperに変更。
@@ -161,7 +160,7 @@ mysql> alter table xxx ...
 ### 新しめのPHPフレームワーク
 
 * ZnedFramework2
-* 試してない。
+* 試してない。しらない。
 
 ---
 
@@ -192,11 +191,11 @@ mysql> alter table xxx ...
 * 軽量なchef的なもの。
 * chefのcookbookにあたるplaybookはymlで記述する。
 * CentOSならepelからyumで一発インストールできる。
-* デプロイツールとして使おうか検討中。
+* 並列SSHができるので、デプロイツールとして使おうか検討中。
 
 ---
 
-### Webデザインまわり
+### Webデザイン系
 
 * Bootstrap3
 * http://getbootstrap.com/
@@ -206,13 +205,56 @@ mysql> alter table xxx ...
 
 ---
 
-### Webデザインまわり
+### Webデザイン系
 
 * Font Awesome
 * http://fortawesome.github.io/Font-Awesome/
 * アイコンをフォントで表現。
 * 画像いじらなくても、CSSでアイコンのサイズ、色が変えられる。
 * 最近のフラットデザインと親和性よし。
+
+---
+
+### まとめ。
+
+---
+
+### まとめ
+
+* サーバ環境
+  * **VirtualBox** - 仮想環境
+  * **Chef** - サーバ構築自動化
+  * **Ansible** - 軽量なサーバ構築、デプロイツール
+* PHP
+  * **Composer** - モジュール管理
+  * **Packagist** - PHPモジュールリポジトリサービス
+  * **LibMigration** - 自作のDBマイグレーション
+  * **Altax** - 自作の並列SSH、デプロイツール
+
+---
+
+### まとめ
+
+* PHPフレームワーク
+  * **Silex** - マイクロフレームワーク
+  * **Symfony2** - モダンなフレームワーク
+* テスト
+  * **PHPUnit** - テストフレームワーク
+  * **SeleniumIDE** - FireFox自動操作アドオン
+  * **Selenium Server** - FireFox自動操作サーバ
+
+---
+
+### まとめ
+
+
+* サービス 
+  * **Travis CI** - 継続的インテグレーション
+  * **COVERALLS** - テストカバレッジ
+* Webデザイン
+  * **Bootstrap3** - CSS,HTMLテンプレート
+  * **Font Awesom** - フォントアイコン
+
 
 ---
 
