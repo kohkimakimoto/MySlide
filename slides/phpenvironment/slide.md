@@ -189,7 +189,7 @@ mysql> alter table xxx ...
 * Pythonで書かれたサーバプロビジョニングツール。
 * http://www.ansibleworks.com/
 * 軽量なchef的なもの。
-* chefのcookbookにあたるplaybookはymlで記述する。
+* chefのcookbookにあたる定義ファイル(playbookという)はymlでシンプルに記述できる。
 * CentOSならepelからyumで一発インストールできる。
 * 並列SSHができるので、デプロイツールとして使おうか検討中。
 
