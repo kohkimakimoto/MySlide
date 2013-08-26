@@ -1,18 +1,25 @@
-# 個人用スライドのひな形
+# My slide show repository
 
-## 概要
+## Setting up to edit.
 
-jekyllとreveal.js
+Installing jekyll using bundler
 
-## 使い方
+```
+$ bundle install
+```
 
-jekyllの動作確認用サーバ
+Running local server.
 
-    $ bundle exec jekyll serve --watch
+```
+$ bundle exec jekyll serve --watch
+```
 
-サーバ
+# Related softwares
 
-    http://localhost:4000/
+* jekyll
+* reveal.js
+* Github pages
 
-スライドの中身は`slide.md`
+
+
 
