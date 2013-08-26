@@ -1,6 +1,6 @@
 # My slide show repository
 
-## Setting up to edit.
+## Setting up to edit a slide.
 
 Installing jekyll using bundler
 
