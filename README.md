@@ -17,8 +17,10 @@ $ bundle exec jekyll serve --watch
 ## Related softwares
 
 * jekyll
+* jekyll-assets
 * reveal.js
 * Github pages
+
 
 
 
